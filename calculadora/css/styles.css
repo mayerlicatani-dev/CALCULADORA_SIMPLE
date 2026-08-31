@@ -1,0 +1,288 @@
+
+/* ================================
+   VARIABLES
+================================ */
+
+:root {
+    --background: #eef2f7;
+    --calculator: #1e293b;
+    --display: #0f172a;
+
+    --button: #334155;
+    --button-hover: #475569;
+
+    --function: #64748b;
+    --operator: #2563eb;
+    --equals: #16a34a;
+
+    --text: #ffffff;
+    --secondary-text: #94a3b8;
+
+    --border-radius: 18px;
+}
+
+
+/* ================================
+   RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ================================
+   BODY
+================================ */
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: var(--background);
+
+    padding: 20px;
+}
+
+
+/* ================================
+   CALCULATOR
+================================ */
+
+.calculator {
+    width: 360px;
+
+    background: var(--calculator);
+
+    padding: 24px;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.2);
+
+    color: var(--text);
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.calculator__header {
+    margin-bottom: 20px;
+}
+
+.calculator__header h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.calculator__header span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--secondary-text);
+
+    font-size: 13px;
+}
+
+
+/* ================================
+   DISPLAY
+================================ */
+
+.calculator__display {
+    height: 110px;
+
+    padding: 15px;
+
+    margin-bottom: 20px;
+
+    background: var(--display);
+
+    border-radius: var(--border-radius);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    text-align: right;
+
+    overflow: hidden;
+}
+
+
+.display__previous {
+    min-height: 25px;
+
+    color: var(--secondary-text);
+
+    font-size: 15px;
+}
+
+
+.display__current {
+    font-size: 42px;
+
+    font-weight: 600;
+
+    overflow-x: auto;
+
+    white-space: nowrap;
+
+    scrollbar-width: none;
+}
+
+.display__current::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* ================================
+   BUTTONS
+================================ */
+
+.calculator__buttons {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+}
+
+
+.button {
+    height: 65px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background: var(--button);
+
+    color: var(--text);
+
+    font-size: 21px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.1s ease,
+        background 0.2s ease;
+}
+
+
+.button:hover {
+    background: var(--button-hover);
+}
+
+
+.button:active {
+    transform: scale(0.94);
+}
+
+
+/* ================================
+   FUNCTION BUTTON
+================================ */
+
+.button--function {
+    background: var(--function);
+}
+
+.button--function:hover {
+    background: #7c8da3;
+}
+
+
+/* ================================
+   OPERATOR BUTTON
+================================ */
+
+.button--operator {
+    background: var(--operator);
+}
+
+.button--operator:hover {
+    background: #1d4ed8;
+}
+
+
+/* ================================
+   EQUALS
+================================ */
+
+.button--equals {
+    background: var(--equals);
+
+    grid-row: span 2;
+
+    height: 140px;
+}
+
+.button--equals:hover {
+    background: #15803d;
+}
+
+
+/* ================================
+   ZERO
+================================ */
+
+.button--zero {
+    grid-column: span 2;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+.calculator__footer {
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: var(--secondary-text);
+
+    font-size: 11px;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 400px) {
+
+    .calculator {
+        width: 100%;
+        max-width: 350px;
+
+        padding: 18px;
+    }
+
+    .button {
+        height: 60px;
+    }
+
+    .button--equals {
+        height: 130px;
+    }
+
+    .display__current {
+        font-size: 34px;
+    }
+}
